@@ -1,0 +1,40 @@
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+
+SELECT ?fullName ?shortName ?ogrn ?inn ?addr ?le{
+
+
+# fts:LE_Tax_Accounting_Entity для заданного fts:Legal_Entity
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p82_refers_to_company ?le.
+# ИНН для заданного fts:LE_Tax_Accounting_Entity
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p35_le_individual_tax_number ?inn.
+
+
+OPTIONAL {
+  # Все fts:Name_Entity для заданного fts:Legal_Entity
+  ?nameE a fts:C38_Name_Entity ;
+           fts:p82_refers_to_company ?le ;
+           # Достаем p16_full_name из текущего fts:Name_Entity
+           fts:p16_full_name ?fullName ;
+           # Достаем p17_short_name из текущего fts:Name_Entity
+           fts:p17_short_name ?shortName .
+}
+
+
+OPTIONAL {
+  # ОГРН для заданного fts:Legal_Entity
+  ?le fts:p28_le_primary_state_registration_number ?ogrn.
+}
+
+
+OPTIONAL {
+  # fts:C39_Address_Entity для заданного fts:Legal_Entity
+  ?addrE a fts:C39_Address_Entity;
+           fts:p82_refers_to_company ?le;
+           # Достаем rdfs:label (адрес) из текущего C39_Address_Entity
+           rdfs:label ?addr.
+}
+
+BIND(<http://example.com/legalentity/c6b1ef42-9e32-5035-a310-43ac1bef3c1c> as ?le)
+}

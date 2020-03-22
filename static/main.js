@@ -1,0 +1,1 @@
+var buttonOpen = document.getElementById('findBtn');buttonOpen.addEventListener('click', function (e) {    e.preventDefault();    document.getElementById('textPrint').innerHTML = 'ТВОЙ ТЕКСТ БУДЕТ ТУТ';});

@@ -1,0 +1,21 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#> 
+SELECT ?name ?person{ 
+
+?person foaf:name ?name. 
+ 
+?fe fts:p101_relates_to_person ?person. 
+  
+OPTIONAL {
+?fe fts:p124_has_share ?hs.
+  
+?hs fts:p51_nominal_share_of_value_in_ruble ?rub.
+?hs fts:p52_percentage_share ?per.
+#?hs fts:p76_entered_on_register_with ?reg.
+#?reg fts:p1_state_registration_number ?reg_num.
+#?reg fts:p2_date ?reg_date.
+}
+
+BIND ("Соболева Елена Анатольевна" AS ?name) 
+}
+

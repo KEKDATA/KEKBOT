@@ -1,0 +1,17 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?fullName ?name{
+
+?nameE a fts:C38_Name_Entity;
+         fts:p16_full_name ?fullName;
+         fts:p82_refers_to_company ?le.
+
+?fe a fts:C54_Founder_Entity;
+      fts:p82_refers_to_company ?le.
+
+?fe fts:p101_relates_to_person ?person.
+
+?person foaf:name ?name.
+
+BIND("ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"УНИА\"" as ?fullName)
+}

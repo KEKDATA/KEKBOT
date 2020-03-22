@@ -1,0 +1,45 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?fullName ?shortName ?ogrn ?inn_org ?name ?addr{
+
+# Все fts:Name_Entity для заданного fts:Legal_Entity
+?nameE a fts:C38_Name_Entity ;
+         fts:p82_refers_to_company ?le ;
+         # Достаем p16_full_name из текущего fts:Name_Entity
+         fts:p16_full_name ?fullName ;
+         # Достаем p17_short_name из текущего fts:Name_Entity
+         fts:p17_short_name ?shortName .
+
+# ОГРН для заданного fts:Legal_Entity
+?le fts:p28_le_primary_state_registration_number ?ogrn .
+
+# fts:LE_Tax_Accounting_Entity для заданного fts:Legal_Entity
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p82_refers_to_company ?le.
+
+# ИНН для заданного fts:LE_Tax_Accounting_Entity
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p35_le_individual_tax_number ?inn_org.
+
+# Все fts:Legal_Entity для fts:Founder_Entity
+?fe a fts:C54_Founder_Entity;
+      fts:p82_refers_to_company ?le.
+
+# fts:Founder_Entity по foaf:Person
+?fe fts:p101_relates_to_person ?person.
+
+OPTIONAL {
+    ?person fts:p75_ie_individual_tax_number ?inn_per.
+}
+
+# foaf:Person по имени
+?person foaf:name ?name.
+
+# fts:C39_Address_Entity для заданного fts:Legal_Entity
+?addrE a fts:C39_Address_Entity;
+         fts:p82_refers_to_company ?le;
+# Достаем rdfs:label (адрес) из текущего C39_Address_Entity
+rdfs:label ?addr.
+
+BIND("ООО \"КАРДИОСТАН\"" as ?shortName)
+}

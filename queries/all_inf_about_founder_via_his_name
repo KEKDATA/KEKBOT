@@ -1,0 +1,30 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?name ?fullName ?shortName ?ogrn ?inn ?addr{
+
+?person foaf:name ?name.
+
+?fe fts:p101_relates_to_person ?person.
+
+?fe a fts:C54_Founder_Entity;
+      fts:p82_refers_to_company ?le.
+
+?nameE a fts:C38_Name_Entity ;
+         fts:p82_refers_to_company ?le ;
+         fts:p16_full_name ?fullName ;
+         fts:p17_short_name ?shortName .
+
+?le fts:p28_le_primary_state_registration_number ?ogrn .
+
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p82_refers_to_company ?le.
+
+?tae fts:p35_le_individual_tax_number ?inn.
+
+?addrE a fts:C39_Address_Entity;
+         fts:p82_refers_to_company ?le;
+
+rdfs:label ?addr.
+
+BIND("Демиденко Сергей Николаевич" as ?name)
+}

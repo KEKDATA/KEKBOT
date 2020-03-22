@@ -1,0 +1,13 @@
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?addr ?fullName{
+
+?nameE a fts:C38_Name_Entity;
+         fts:p16_full_name ?fullName;
+         fts:p82_refers_to_company ?le.
+
+?addrE a fts:C39_Address_Entity;
+         fts:p82_refers_to_company ?le;
+         rdfs:label ?addr.
+
+BIND("ФОНД РАЗВИТИЯ ИНТЕРНЕТ-ИНИЦИАТИВ" as ?fullName)
+}

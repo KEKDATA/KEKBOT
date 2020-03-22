@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>KEKDATA Start page</title>
+        <link href="../static/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header-page">
+                <div class="header-page__info">
+                    <a class="header-page__link" href="#">
+                        <svg class="form__svg-search svg">
+                            <use xlink:href=".././img/kekdata.svg#kekdata"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="header-page__telegram telegram">
+                    <h1 class="telegram__title">
+                        Вы можете использовать нашего бота в Телеграме
+                    </h1>
+                    <a class="telegram__link" href="tg://resolve?domain=@kekbot_bot">
+                        <svg class="telegram__svg svg" width="48px" height="48px">
+                            <use xlink:href="../img/telegram.svg#telegram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </header>
+            <main class="main-page">
+                <form class="main-page__form form" action="" method="get">
+                    <div class="form__wrapper">
+                        <div class="form__input-database">
+                            <label class="form__label" for="search-name">
+                                Кнопочка:
+                            </label>
+                            <input class="form__input" type="text" name="search-name" id="search-name" placeholder="Введите Ваш запрос" required="">
+                            <button class="form__button btn" id="findBtn">
+                                <p class="visually-hidden">
+                                    Поиск
+                                </p>
+                                <svg class="form__svg-search svg" width="32px" height="32px">
+                                    <use xlink:href=".././img/search.svg#search-svg"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="form__text" id="textPrint">
+
+                    </p>
+                </form>
+            </main>
+            <footer class="footer-page">
+                <div class="footer-page__wrapper">
+                    <div class="footer-page__person person">
+                        <h2 class="person__title">
+                            Крохмаль Даниил
+                        </h2>
+                        <div class="person__links">
+                            <a class="socials__vk person__link" href="https://vk.com/id40371882">
+                                <svg class="socials__vk-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/vk.svg#vk"></use>
+                                </svg>
+                            </a>
+                            <a class="socials__github" href="https://github.com/TchernyavskyDaniil">
+                                <svg class="socials__github-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/github.svg#github"></use>
+                                </svg>
+                            </a>
+                            <a class="telegram__link" href="tg://resolve?domain=@TchernyavskyD">
+                                <svg class="telegram__svg svg" width="54px" height="55px">
+                                    <use xlink:href="../img/telegram.svg#telegram"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-page__person person">
+                        <h2 class="person__title">
+                            Марк Страхов
+                        </h2>
+                        <div class="person__links">
+                            <a class="socials__vk person__link" href="https://vk.com/id233593984">
+                                <svg class="socials__vk-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/vk.svg#vk"></use>
+                                </svg>
+                            </a>
+                            <a class="socials__github" href="https://github.com/xevolesi">
+                                <svg class="socials__github-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/github.svg#github"></use>
+                                </svg>
+                            </a>
+                            <a class="telegram__link" href="tg://resolve?domain=@xevolsei">
+                                <svg class="telegram__svg svg" width="54px" height="55px">
+                                    <use xlink:href="../img/telegram.svg#telegram"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-page__person person">
+                        <h2 class="person__title">
+                            Сошкин Андрей
+                        </h2>
+                        <div class="person__links">
+                            <a class="socials__vk person__link" href="https://vk.com/id138238035">
+                                <svg class="socials__vk-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/vk.svg#vk"></use>
+                                </svg>
+                            </a>
+                            <a class="socials__github" href="https://github.com/s-andrew">
+                                <svg class="socials__github-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/github.svg#github"></use>
+                                </svg>
+                            </a>
+                            <a class="telegram__link" href="tg://resolve?domain=@@ANSO23">
+                                <svg class="telegram__svg svg" width="54px" height="55px">
+                                    <use xlink:href="../img/telegram.svg#telegram"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-page__person person">
+                        <h2 class="person__title">
+                            Калита Андрей
+                        </h2>
+                        <div class="person__links">
+                            <a class="socials__github" href="https://github.com/2la">
+                                <svg class="socials__github-svg svg" width="32px" height="32px">
+                                    <use xlink:href="../img/github.svg#github"></use>
+                                </svg>
+                            </a>
+                            <a class="telegram__link person__link-telegram" href="tg://resolve?domain=@andrew_x">
+                                <svg class="telegram__svg svg" width="54px" height="55px">
+                                    <use xlink:href="../img/telegram.svg#telegram"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    <script src="../static/main.js"></script>
+    </body>
+</html>

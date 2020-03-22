@@ -1,0 +1,23 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+
+SELECT ?name ?inn{
+
+
+# Все fts:Legal_Entity для fts:Founder_Entity
+?fe a fts:C54_Founder_Entity;
+      fts:p82_refers_to_company ?le.
+
+# fts:Founder_Entity по foaf:Person
+?fe fts:p101_relates_to_person ?person.
+
+# foaf:Person по имени
+?person foaf:name ?name.
+
+OPTIONAL{
+  # person по ИНН
+  ?person fts:p75_ie_individual_tax_number ?inn.
+}
+
+BIND(<http://example.com/legalentity/c6b1ef42-9e32-5035-a310-43ac1bef3c1c> as ?le)
+}

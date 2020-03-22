@@ -1,0 +1,16 @@
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?inn ?fullName ?shortName{
+
+?tae a fts:C44_LE_Tax_Accounting_Entity;
+       fts:p35_le_individual_tax_number ?inn.
+
+?tae fts:p82_refers_to_company ?le.
+
+?nameE a fts:C38_Name_Entity ;
+         fts:p82_refers_to_company ?le ;
+         fts:p16_full_name ?fullName ;
+         fts:p17_short_name ?shortName .
+
+BIND("7704280879" as ?inn)
+}
+

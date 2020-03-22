@@ -1,0 +1,13 @@
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#>
+SELECT ?ogrn ?fullName ?shortName {
+
+?le a fts:C9_Legal_Entity ;
+      fts:p28_le_primary_state_registration_number ?ogrn .
+
+?nameE a fts:C38_Name_Entity ;
+         fts:p82_refers_to_company ?le ;
+         fts:p16_full_name ?fullName ;
+         fts:p17_short_name ?shortName .
+
+BIND ("1137799009589" AS ?ogrn)
+}

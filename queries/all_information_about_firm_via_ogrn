@@ -1,0 +1,31 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX fts: <https://w3id.org/datafabric.cc/ontologies/fts#> 
+SELECT ?ogrn ?fullName ?shortName ?inn ?name ?addr{ 
+
+?le a fts:C9_Legal_Entity ; 
+      fts:p28_le_primary_state_registration_number ?ogrn . 
+
+?nameE a fts:C38_Name_Entity ; 
+         fts:p82_refers_to_company ?le ; 
+         fts:p16_full_name ?fullName ; 
+         fts:p17_short_name ?shortName . 
+
+?tae a fts:C44_LE_Tax_Accounting_Entity; 
+       fts:p82_refers_to_company ?le. 
+
+?tae fts:p35_le_individual_tax_number ?inn. 
+
+?fe a fts:C54_Founder_Entity; 
+      fts:p82_refers_to_company ?le. 
+
+?fe fts:p101_relates_to_person ?person. 
+
+?person foaf:name ?name. 
+
+?addrE a fts:C39_Address_Entity; 
+         fts:p82_refers_to_company ?le; 
+
+rdfs:label ?addr. 
+
+BIND ("5087746147704" AS ?ogrn) 
+}
